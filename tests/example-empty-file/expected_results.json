@@ -1,5 +1,5 @@
 {
   "version": 1,
   "status": "fail",
-  "output": "Leap.pm did not return a true value at /solution/leap.t line 9.\nBEGIN failed--compilation aborted at /solution/leap.t line 9.\n/solution/leap.t .. \nDubious, test returned 255 (wstat 65280, 0xff00)\nNo subtests run \n\nTest Summary Report\n-------------------\n/solution/leap.t (Wstat: 65280 Tests: 0 Failed: 0)\n  Non-zero exit status: 255\n  Parse errors: No plan found in TAP output\nFiles=1, Tests=0,  \nResult: FAIL"
+  "message": "Leap.pm did not return a true value at /solution/leap.t line 9.\nBEGIN failed--compilation aborted at /solution/leap.t line 9.\n/solution/leap.t .. \nDubious, test returned 255 (wstat 65280, 0xff00)\nNo subtests run \n\nTest Summary Report\n-------------------\n/solution/leap.t (Wstat: 65280 Tests: 0 Failed: 0)\n  Non-zero exit status: 255\n  Parse errors: No plan found in TAP output\nFiles=1, Tests=0,  \nResult: FAIL"
 }
