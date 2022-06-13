@@ -9,7 +9,7 @@ use lib $Bin, "$Bin/local/lib/perl5";    # Find modules in the same dir as this 
 use Leap qw<is_leap_year>;
 
 my @test_cases = do { local $/; @{ JSON->decode(<DATA>) }; };
-plan 10;                                 # This is how many tests we expect to run.
+plan 3;                                  # This is how many tests we expect to run.
 
 imported_ok qw<is_leap_year> or bail_out;
 
