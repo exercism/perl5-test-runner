@@ -20,7 +20,9 @@ for test_dir in tests/*; do
     results_file_path="${test_dir_path}/results.json"
     expected_results_file_path="${test_dir_path}/expected_results.json"
 
-    bin/run.sh "${test_dir_name}" "${test_dir_path}" "${test_dir_path}"
+    # Need to pass in a real slug instead of example dirs
+    # All tests are currently 'leap'
+    bin/run.sh 'leap' "${test_dir_path}" "${test_dir_path}"
 
     # Normalize the results file
     sed -i -E \
