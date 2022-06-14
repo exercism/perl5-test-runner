@@ -31,19 +31,25 @@ mkdir -p "${output_dir}"
 
 echo "${slug}: testing..."
 
-# Run the tests for the provided implementation file and redirect stdout and
-# stderr to capture it
-test_output=$(prove "${input_dir}" 2>&1)
+# Run the tests and output to log.jsonl
+yath test "${input_dir}" -qq --log-file $input_dir/log.jsonl
 
-# Write the results.json file based on the exit code of the command that was 
-# just executed that tested the implementation file
-if [ $? -eq 0 ]; then
-    jq -n '{version: 1, status: "pass"}' > ${results_file}
-else
-    # Manually add colors to the output to help scanning the output for errors
-    colorized_test_output=$(echo "${test_output}" | GREP_COLOR='01;31' grep --color=always -E -e '^# Failed.*|$')
-
-    jq -n --arg output "${colorized_test_output}" '{version: 1, status: "fail", message: $output}' > ${results_file}
-fi
+# Transform log data to expected output
+cat $input_dir/log.jsonl | jq --slurp '
+  {
+    version:   2,
+    exit_code: (.[].facet_data.harness_job_exit.code // empty),
+    message:   (.[].facet_data.harness_job_exit.stderr // empty),
+    tests:     ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
+  } | if .tests[0] and .exit_code == "0" then
+    {version, status: "pass", tests}
+  elif .tests[0] and .exit_code < "255" then
+    {version, status: "fail", tests}
+  elif .tests[0] then
+    {version, status: "error", message, tests}
+  else
+    {version, status: "error", message}
+  end
+' > ${results_file}
 
 echo "${slug}: done"
