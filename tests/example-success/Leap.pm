@@ -5,6 +5,9 @@ use warnings;
 use Exporter qw<import>;
 our @EXPORT_OK = qw<is_leap_year>;
 
+# For checking module presence in test runner
+use Moo;
+
 sub is_leap_year {
   my ($year) = @_;
   return $year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0;

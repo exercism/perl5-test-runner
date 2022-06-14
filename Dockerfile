@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g Test2::V0 App::Yath
+RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g Test2::V0 App::Yath Moo
 
 WORKDIR /opt/test-runner
 COPY . .
