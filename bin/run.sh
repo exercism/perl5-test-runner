@@ -32,7 +32,7 @@ mkdir -p "${output_dir}"
 echo "${slug}: testing..."
 
 # Run the tests and output to log.jsonl
-yath test "${input_dir}" -qq --log-file $input_dir/log.jsonl
+yath test "${input_dir}/${slug}.t" -qq --log-file $input_dir/log.jsonl
 
 # Transform log data to expected output
 cat $input_dir/log.jsonl | jq --slurp '
