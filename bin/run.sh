@@ -31,9 +31,6 @@ mkdir -p "${output_dir}"
 
 echo "${slug}: testing..."
 
-# Load the required modules
-eval $(perl -I/opt-test-runner/perl5/lib/perl5 -Mlocal::lib=/opt-test-runner/perl5)
-
 # Run the tests for the provided implementation file and redirect stdout and
 # stderr to capture it
 test_output=$(prove "${input_dir}" 2>&1)
