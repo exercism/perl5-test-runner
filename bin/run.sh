@@ -43,7 +43,7 @@ cat $input_dir/log.jsonl | jq --slurp '
     tests:     ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
   } | if .tests[0] and .exit_code == "0" then
     {version, status: "pass", tests}
-  elif .tests[0] and .exit_code < "255" then
+  elif .tests[0] and .exit_code != "255" then
     {version, status: "fail", tests}
   elif .tests[0] then
     {version, status: "error", message, tests}
