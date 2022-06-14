@@ -41,9 +41,9 @@ cat $input_dir/log.jsonl | jq --slurp '
     message:   (.[].facet_data.harness_job_exit.stderr // empty),
     tests:     ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
   } | if .tests[0] and .exit_code == "0" then
-    {version: 2, status: "pass", message: null, tests}
+    {version: 2, status: "pass", tests}
   elif .tests[0] and .exit_code < "255" then
-    {version: 2, status: "fail", message: null, tests}
+    {version: 2, status: "fail", tests}
   else
     {version: 2, status: "error", message}
   end

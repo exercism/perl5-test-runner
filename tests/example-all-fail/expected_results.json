@@ -1,7 +1,6 @@
 {
   "version": 2,
   "status": "fail",
-  "message": null,
   "tests": [
     {
       "name": "Imported symbol: is_leap_year",
