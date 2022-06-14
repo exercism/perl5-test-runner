@@ -1,6 +1,5 @@
 {
   "version": 2,
   "status": "error",
-  "message": "Leap.pm did not return a true value at tests/example-empty-file/leap.t line 9.\nBEGIN failed--compilation aborted at tests/example-empty-file/leap.t line 9.\n",
-  "tests": []
+  "message": "Leap.pm did not return a true value at tests/example-empty-file/leap.t line 9.\nBEGIN failed--compilation aborted at tests/example-empty-file/leap.t line 9.\n"
 }

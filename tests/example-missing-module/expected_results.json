@@ -1,0 +1,5 @@
+{
+  "version": 2,
+  "status": "error",
+  "message": "Can't locate MyApp.pm in @INC (you may need to install the MyApp module) (@INC contains: /solution /solution/local/lib/perl5 /opt/test-runner/lib /opt/test-runner/blib/lib /opt/test-runner/blib/arch /usr/local/lib/perl5/site_perl/5.36.0/x86_64-linux-gnu /usr/local/lib/perl5/site_perl/5.36.0 /usr/local/lib/perl5/vendor_perl/5.36.0/x86_64-linux-gnu /usr/local/lib/perl5/vendor_perl/5.36.0 /usr/local/lib/perl5/5.36.0/x86_64-linux-gnu /usr/local/lib/perl5/5.36.0) at /solution/Leap.pm line 8.\nBEGIN failed--compilation aborted at /solution/Leap.pm line 8.\nCompilation failed in require at tests/example-missing-module/leap.t line 9.\nBEGIN failed--compilation aborted at tests/example-missing-module/leap.t line 9.\n"
+}

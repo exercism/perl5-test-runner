@@ -37,11 +37,16 @@ yath test "${input_dir}" -qq --log-file $input_dir/log.jsonl
 # Transform log data to expected output
 cat $input_dir/log.jsonl | jq --slurp '
   {
-    version: 2,
-    status: (.[].facet_data.harness_job_exit | if .code == "255" then "error" elif .code == "0" then "pass" elif .code then "fail" else empty end),
-    message: (.[].facet_data.harness_job_exit | if .code == "255" then .stderr elif .code then null else empty end),
-    tests: ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
-  }
+    exit_code: (.[].facet_data.harness_job_exit.code // empty),
+    message:   (.[].facet_data.harness_job_exit.stderr // empty),
+    tests:     ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
+  } | if .tests[0] and .exit_code == "0" then
+    {version: 2, status: "pass", message: null, tests}
+  elif .tests[0] and .exit_code < "255" then
+    {version: 2, status: "fail", message: null, tests}
+  else
+    {version: 2, status: "error", message}
+  end
 ' > ${results_file}
 
 echo "${slug}: done"
