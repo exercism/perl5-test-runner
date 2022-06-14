@@ -29,6 +29,13 @@ results_file="${output_dir}/results.json"
 # Create the output directory if it doesn't exist
 mkdir -p "${output_dir}"
 
+# Install modules from vendor/cache
+if [ -f "$input_dir/cpanfile" ] && [ -f "$input_dir/vendor/cache/modules/02packages.details.txt.gz" ]; then
+    cd $input_dir
+    HOME=/tmp cpm install --resolver "02packages,file://$input_dir/vendor/cache" --with-recommends --with-suggests --snapshot /dev/null
+    cd -
+fi
+
 echo "${slug}: testing..."
 
 # Run the tests and output to log.jsonl
