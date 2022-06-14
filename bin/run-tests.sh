@@ -24,9 +24,8 @@ for test_dir in tests/*; do
 
     # Normalize the results file
     sed -i -E \
-      -e 's/[0-9]+ wallclock secs \(.*\)//g' \
       -e "s~${test_dir_path}~/solution~g" \
-      -e "s/# Seeded srand with seed '[0-9]+' from local date.//g" \
+      -e "s/\(@INC contains:.*?\) //g" \
       "${results_file_path}"
 
     echo "${test_dir_name}: comparing results.json to expected_results.json"
