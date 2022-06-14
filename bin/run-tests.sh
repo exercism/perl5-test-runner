@@ -25,7 +25,8 @@ for test_dir in tests/*; do
     # Normalize the results file
     sed -i -E \
       -e "s~${test_dir_path}~/solution~g" \
-      -e "s/\(@INC contains:.*?\) //g" \
+      -e "s/ \(@INC contains:.*?\)//g" \
+      -e "s/T2-HARNESS.*?utf8\\\n//g" \
       "${results_file_path}"
 
     echo "${test_dir_name}: comparing results.json to expected_results.json"
