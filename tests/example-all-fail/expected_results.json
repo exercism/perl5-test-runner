@@ -1,20 +1,23 @@
 {
-  "version": 2,
-  "status": "fail",
-  "tests": [
-    {
-      "name": "Imported symbol: is_leap_year",
-      "status": "pass"
-    },
-    {
-      "name": "year not divisible by 4 in common year",
-      "status": "fail",
-      "message": "+-----+----------------------+-------------------+-----+\n| GOT | OP                   | CHECK             | LNs |\n+-----+----------------------+-------------------+-----+\n| 1   | DEFINED() && FALSE() | DEFINED BUT FALSE | 21  |\n+-----+----------------------+-------------------+-----+"
-    },
-    {
-      "name": "year divisible by 4, not divisible by 100 in leap year",
-      "status": "fail",
-      "message": "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 21  |\n+-----+--------+-------+-----+"
-    }
-  ]
+   "status" : "fail",
+   "tests" : [
+      {
+         "name" : "Imported symbol: is_leap_year",
+         "output" : null,
+         "status" : "pass"
+      },
+      {
+         "message" : "+-----+----------------------+-------------------+-----+\n| GOT | OP                   | CHECK             | LNs |\n+-----+----------------------+-------------------+-----+\n| 1   | DEFINED() && FALSE() | DEFINED BUT FALSE | 21  |\n+-----+----------------------+-------------------+-----+",
+         "name" : "year not divisible by 4 in common year",
+         "output" : null,
+         "status" : "fail"
+      },
+      {
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 21  |\n+-----+--------+-------+-----+",
+         "name" : "year divisible by 4, not divisible by 100 in leap year",
+         "output" : null,
+         "status" : "fail"
+      }
+   ],
+   "version" : 2
 }

@@ -29,7 +29,7 @@ for test_dir in tests/*; do
       -e "s~${test_dir_path}~/solution~g" \
       -e "s~${test_dir}~/solution~g" \
       -e "s/ \(@INC contains:.*?\)//g" \
-      -e "s/T2-HARNESS.*?utf8\\\n//g" \
+      -e "s/Seeded srand.*?\\\n//g" \
       "${results_file_path}"
 
     echo "${test_dir_name}: comparing results.json to expected_results.json"
