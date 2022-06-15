@@ -35,21 +35,6 @@ echo "${slug}: testing..."
 yath test "${input_dir}/${slug}.t" -qq --log-file $input_dir/log.jsonl
 
 # Transform log data to expected output
-cat $input_dir/log.jsonl | jq --slurp '
-  {
-    version:   2,
-    exit_code: (.[].facet_data.harness_job_exit.code // empty),
-    message:   (.[].facet_data.harness_job_exit.stderr // empty),
-    tests:     ([.[].facet_data | if .assert.pass == 1 then {name: .assert.details, status: "pass"} elif .assert.pass == 0 then {name: .assert.details, status: "fail", message: .info[0].details} else empty end])
-  } | if .tests[0] and .exit_code == "0" then
-    {version, status: "pass", tests}
-  elif .tests[0] and .exit_code != "255" then
-    {version, status: "fail", tests}
-  elif .tests[0] then
-    {version, status: "error", message, tests}
-  else
-    {version, status: "error", message}
-  end
-' > ${results_file}
+cat $input_dir/log.jsonl | jq --slurp --from-file jq_log_filter > ${results_file}
 
 echo "${slug}: done"
