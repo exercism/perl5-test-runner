@@ -10,6 +10,7 @@ use Moo;
 
 sub is_leap_year {
   my ($year) = @_;
+  print "OUTPUT\n" if $year == 1970;
   return $year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0;
 }
 
