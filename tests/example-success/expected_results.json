@@ -28,7 +28,7 @@
       },
       {
          "name" : "year divisible by 100, not divisible by 400 in common year",
-         "output" : null,
+         "output" : "[\"DUMPED\"]\n",
          "status" : "pass"
       },
       {
