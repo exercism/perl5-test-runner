@@ -32,7 +32,7 @@ mkdir -p "${output_dir}"
 # Install modules from vendor/cache
 if [ -f "$input_dir/cpanfile" ] && [ -f "$input_dir/vendor/cache/modules/02packages.details.txt.gz" ]; then
     cd $input_dir
-    HOME=/tmp cpm install --resolver "02packages,file://$input_dir/vendor/cache" --with-recommends --with-suggests --snapshot /dev/null
+    HOME=$PWD cpm install --resolver "02packages,file://$input_dir/vendor/cache" --with-recommends --with-suggests --snapshot /dev/null --show-build-log-on-failure
     cd -
 fi
 
