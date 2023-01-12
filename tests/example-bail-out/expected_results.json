@@ -1,17 +1,5 @@
 {
-   "status" : "fail",
-   "tests" : [
-      {
-         "name" : "Imported symbol: is_leap_year",
-         "output" : null,
-         "status" : "pass"
-      },
-      {
-         "message" : "Undefined subroutine &Leap::is_leap_year called at ../solution/leap.t line 11.\nTests were run but no plan was declared and done_testing() was not seen.\nLooks like your test exited with 255 after test #1.\n",
-         "name" : "Unknown: An error occurred.",
-         "output" : null,
-         "status" : "error"
-      }
-   ],
+   "message" : "\"is_leap_year\" is not exported by the Leap module\nCan't continue after import errors at ../solution/leap.t line 7.\nBEGIN failed--compilation aborted at ../solution/leap.t line 7.\n",
+   "status" : "error",
    "version" : 2
 }
