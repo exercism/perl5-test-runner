@@ -7,7 +7,7 @@
          "status" : "pass"
       },
       {
-         "message" : "oh no at /solution/Leap.pm line 10, <DATA> line 25.\nLooks like your test exited with 255 after test #1.\nDid not follow plan: expected 3, ran 1.\n",
+         "message" : "oh no at /solution/Leap.pm line 10.\nTests were run but no plan was declared and done_testing() was not seen.\nLooks like your test exited with 255 after test #1.\n",
          "name" : "Unknown: An error occurred.",
          "output" : null,
          "status" : "error"

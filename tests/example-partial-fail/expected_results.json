@@ -37,13 +37,13 @@
          "status" : "pass"
       },
       {
-         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 21  |\n+-----+--------+-------+-----+",
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 47  |\n+-----+--------+-------+-----+",
          "name" : "year divisible by 400 is leap year",
          "output" : null,
          "status" : "fail"
       },
       {
-         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 21  |\n+-----+--------+-------+-----+",
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 53  |\n+-----+--------+-------+-----+",
          "name" : "year divisible by 400 but not by 125 is still a leap year",
          "output" : null,
          "status" : "fail"

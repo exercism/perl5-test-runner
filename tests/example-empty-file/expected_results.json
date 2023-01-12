@@ -1,5 +1,5 @@
 {
-   "message" : "Leap.pm did not return a true value at ../solution/leap.t line 9.\nBEGIN failed--compilation aborted at ../solution/leap.t line 9.\n",
+   "message" : "Leap.pm did not return a true value at ../solution/leap.t line 7.\nBEGIN failed--compilation aborted at ../solution/leap.t line 7.\n",
    "status" : "error",
    "version" : 2
 }
