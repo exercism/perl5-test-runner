@@ -7,16 +7,54 @@
          "status" : "pass"
       },
       {
-         "message" : "+-----+----------------------+-------------------+-----+\n| GOT | OP                   | CHECK             | LNs |\n+-----+----------------------+-------------------+-----+\n| 1   | DEFINED() && FALSE() | DEFINED BUT FALSE | 21  |\n+-----+----------------------+-------------------+-----+",
+         "message" : "+-----+----------------------+-------------------+-----+\n| GOT | OP                   | CHECK             | LNs |\n+-----+----------------------+-------------------+-----+\n| 1   | DEFINED() && FALSE() | DEFINED BUT FALSE | 11  |\n+-----+----------------------+-------------------+-----+",
          "name" : "year not divisible by 4 in common year",
          "output" : null,
          "status" : "fail"
       },
       {
-         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 21  |\n+-----+--------+-------+-----+",
+         "name" : "year divisible by 2, not divisible by 4 in common year",
+         "output" : null,
+         "status" : "pass"
+      },
+      {
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 23  |\n+-----+--------+-------+-----+",
          "name" : "year divisible by 4, not divisible by 100 in leap year",
          "output" : null,
          "status" : "fail"
+      },
+      {
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 29  |\n+-----+--------+-------+-----+",
+         "name" : "year divisible by 4 and 5 is still a leap year",
+         "output" : null,
+         "status" : "fail"
+      },
+      {
+         "name" : "year divisible by 100, not divisible by 400 in common year",
+         "output" : null,
+         "status" : "pass"
+      },
+      {
+         "name" : "year divisible by 100 but not by 3 is still not a leap year",
+         "output" : null,
+         "status" : "pass"
+      },
+      {
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 47  |\n+-----+--------+-------+-----+",
+         "name" : "year divisible by 400 is leap year",
+         "output" : null,
+         "status" : "fail"
+      },
+      {
+         "message" : "+-----+--------+-------+-----+\n| GOT | OP     | CHECK | LNs |\n+-----+--------+-------+-----+\n|     | TRUE() | TRUE  | 53  |\n+-----+--------+-------+-----+",
+         "name" : "year divisible by 400 but not by 125 is still a leap year",
+         "output" : null,
+         "status" : "fail"
+      },
+      {
+         "name" : "year divisible by 200, not divisible by 400 in common year",
+         "output" : null,
+         "status" : "pass"
       }
    ],
    "version" : 2

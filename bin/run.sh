@@ -38,10 +38,13 @@ fi
 
 echo "${slug}: testing..."
 
+# Move to /tmp for log file creation
+cd /tmp
 # Run the tests and output to log.jsonl
-yath test "${input_dir}/${slug}.t" -qq --log-file $input_dir/log.jsonl
-
+yath test "${input_dir}/${slug}.t" -qq --log-file /tmp/log.jsonl
+# Move back
+cd -
 # Transform log data to expected output
-cat $input_dir/log.jsonl | bin/transform_logs.pl > ${results_file}
+cat /tmp/log.jsonl | bin/transform_logs.pl > ${results_file}
 
 echo "${slug}: done"
