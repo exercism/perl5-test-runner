@@ -1,4 +1,4 @@
-FROM perl:5.36.0-bullseye
+FROM perl:5.38.0-bookworm
 
 RUN apt-get update && \
     apt-get install -y jq && \

@@ -28,7 +28,7 @@ for test_dir in tests/*; do
     sed -i -E \
       -e "s~${test_dir_path}~/solution~g" \
       -e "s~${test_dir}~/solution~g" \
-      -e "s/ \(@INC contains:.*?\)//g" \
+      -e "s/ \(@INC entries checked:.*?\)//g" \
       -e "s/Seeded srand.*?\\\n//g" \
       "${results_file_path}"
 
