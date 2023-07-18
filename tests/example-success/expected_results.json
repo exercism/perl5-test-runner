@@ -43,7 +43,7 @@
       },
       {
          "name" : "year divisible by 400 but not by 125 is still a leap year",
-         "output" : null,
+         "output" : "--- Why Why Why\n...\n  at /solution/Leap.pm line 17\n",
          "status" : "pass"
       },
       {
