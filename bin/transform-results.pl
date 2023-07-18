@@ -16,7 +16,7 @@ sub main ($tap_results, $output_file, $test_file) {
     my $json = Cpanel::JSON::XS->new->canonical->pretty->utf8;
 
     for my $line (path($test_file)->lines_utf8) {
-        if ($line =~ m{# begin: (\S+)$}) {
+        if ($line =~ m{# (?:begin|case): (\S+)$}) {
             $take = true;
             $id   = $1;
         }
