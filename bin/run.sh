@@ -38,13 +38,11 @@ fi
 
 echo "${slug}: testing..."
 
-# Move to /tmp for log file creation
-cd /tmp
-# Run the tests and output to log.jsonl
-yath test "${input_dir}/${slug}.t" -qq --log-file /tmp/log.jsonl
-# Move back
-cd -
-# Transform log data to expected output
-cat /tmp/log.jsonl | bin/transform_logs.pl > ${results_file}
+# Run the tests and transform to results
+test_file="${input_dir}/${slug}.t"
+chmod +x $test_file
+export HOME='/tmp'
+$test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
+bin/transform-results.pl "${output_dir}/tap.json" "${results_file}" $test_file
 
 echo "${slug}: done"

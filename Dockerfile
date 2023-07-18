@@ -1,7 +1,7 @@
 FROM perl:5.38.0-bookworm
 
 RUN apt-get update && \
-    apt-get install -y jq && \
+    apt-get install -y npm && \
     apt-get purge --auto-remove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -12,7 +12,11 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - ins
     App::Yath \
     Data::Dumper \
     Data::Dump \
-    Moo
+    Moo \
+    Cpanel::JSON::XS \
+    Path::Tiny
+
+RUN npm install -g tap-parser
 
 WORKDIR /opt/test-runner
 COPY . .
