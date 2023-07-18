@@ -12,7 +12,14 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - ins
     App::Yath \
     Data::Dumper \
     Data::Dump \
-    Moo
+    Data::Dump::Color \
+    Moo \
+    Mo \
+    Moose \
+    Object::Pad \
+    Object::Tiny \
+    Role::Tiny \
+    XXX
 
 WORKDIR /opt/test-runner
 COPY . .

@@ -41,7 +41,7 @@ echo "${slug}: testing..."
 # Move to /tmp for log file creation
 cd /tmp
 # Run the tests and output to log.jsonl
-yath test "${input_dir}/${slug}.t" -qq --log-file /tmp/log.jsonl
+PERL5OPT='-MXXX=-global' yath test "${input_dir}/${slug}.t" -qq --log-file /tmp/log.jsonl
 # Move back
 cd -
 # Transform log data to expected output
