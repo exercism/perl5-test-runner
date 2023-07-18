@@ -41,7 +41,7 @@ echo "${slug}: testing..."
 # Run the tests and transform to results
 test_file="${input_dir}/${slug}.t"
 chmod +x $test_file
-$test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
+PERL5OPT='-MXXX=-global' $test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
 bin/transform-results.pl "${output_dir}/tap.json" "${results_file}" $test_file
 
 echo "${slug}: done"

@@ -8,15 +8,23 @@ RUN apt-get update && \
 
 RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - install -g \
     App::cpm \
+    Cpanel::JSON::XS \
+    Path::Tiny \
     Test2::V0 \
     App::Yath \
     Data::Dumper \
     Data::Dump \
+    Data::Dump::Color \
+    XXX \
     Moo \
-    Cpanel::JSON::XS \
-    Path::Tiny
+    Mo \
+    Moose \
+    Object::Pad \
+    Object::Tiny \
+    Role::Tiny
 
 RUN npm install -g tap-parser
+
 
 WORKDIR /opt/test-runner
 COPY . .
