@@ -1,16 +1,20 @@
 {
-   "message" : "oh no at /solution/Leap.pm line 10.\n",
-   "status" : "error",
+   "message" : null,
+   "status" : "fail",
    "tests" : [
       {
-         "status" : "error",
+         "message" : "# Failed test 'year not divisible by 4 in common year'\n# at /solution/leap.t line 9.\n# +-----+----------------------+-------------------+-----+\n# | GOT | OP                   | CHECK             | LNs |\n# +-----+----------------------+-------------------+-----+\n# | 1   | DEFINED() && FALSE() | DEFINED BUT FALSE | 9   |\n# +-----+----------------------+-------------------+-----+\n",
+         "name" : "year not divisible by 4 in common year",
+         "status" : "fail",
          "test_code" : "is( \n    is_leap_year(2015),\n    DF, # Defined but False\n    \"year not divisible by 4 in common year\",\n);"
       },
       {
-         "status" : "error",
+         "name" : "year divisible by 2, not divisible by 4 in common year",
+         "status" : "pass",
          "test_code" : "is( \n    is_leap_year(1970),\n    DF, # Defined but False\n    \"year divisible by 2, not divisible by 4 in common year\",\n);"
       },
       {
+         "message" : "oh no at /solution/Leap.pm line 10.\n",
          "status" : "error",
          "test_code" : "is( \n    is_leap_year(1996),\n    T, # True\n    \"year divisible by 4, not divisible by 100 in leap year\",\n);"
       },
