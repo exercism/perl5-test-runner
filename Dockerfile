@@ -14,6 +14,7 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - ins
     Data::Dump \
     Data::Dump::Color \
     Moo \
+    Mo \
     Moose \
     Object::Pad \
     Object::Tiny \
