@@ -24,7 +24,7 @@ sub main ($tap_results, $output_file, $test_file) {
         if ($take) {
             push @case, ($line =~ s/# \w+: $id//r);
 
-            if ($line =~ m{# (?:end|case): (\S+)$}) {
+            if ($line =~ m{# (?:end|case): $id\b}) {
                 $take = false;
                 push @tests, (join('', @case) =~ s/^\s+|\s+$//gr);
                 undef @case;
