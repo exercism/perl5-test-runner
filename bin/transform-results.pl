@@ -12,34 +12,40 @@ main(@ARGV) unless caller;
 sub main ($tap_results, $output_file, $test_file) {
     my $output = ''; 
     my $take   = false;
-    my (@case, @tests, $id);
+    my (@case, $case_id, $task_id);
     my $json = Cpanel::JSON::XS->new->canonical->pretty->utf8;
 
+    my %results = (
+        status  => 'error',
+        message => undef,
+        version => 3,
+        tests   => [],
+    );
+
     for my $line (path($test_file)->lines_utf8) {
-        if ($line =~ m{# (?:begin|case): (\S+)$}) {
+        if ($line =~ m{# (?:begin|case): (\S+)(?:\s+task: (\d+))?$}) {
             $take = true;
-            $id   = $1;
+            $case_id = $1;
+            $task_id = $2;
         }
         
         if ($take) {
-            push @case, ($line =~ s/# \w+: $id//r);
+            push @case, ($line =~ s/# \w+: $case_id.*//r);
 
-            if ($line =~ m{# (?:end|case): $id\b}) {
+            if ($line =~ m{# (?:end|case): $case_id\b}) {
                 $take = false;
-                push @tests, (join('', @case) =~ s/^\s+|\s+$//gr);
+                push $results{tests}->@*, {
+                    test_code => (join('', @case) =~ s/^\s+|\s+$//gr),
+                    status    => 'error',
+                    (task_id  => $task_id) x !!$task_id,
+                };
                 undef @case;
-                undef $id;
+                undef $case_id;
+                undef $task_id;
             }
         }
     }
 
-    my %results = (
-        status  => undef,
-        message => undef,
-        version => 2,
-    );
-    $results{tests} = [ map { { test_code => $_, status => 'error'} } @tests ];
-    
     my $i = 0;
     for my $part ( $json->decode( path($tap_results)->slurp_utf8 )->@* ) {
         if ($part->[0] eq 'comment') {
@@ -57,7 +63,6 @@ sub main ($tap_results, $output_file, $test_file) {
             $output = '';
         }
         elsif ($part->[0] eq 'bailout') {
-            $results{status}  = 'error';
             $results{message} = $part->[1];
             last;
         }
@@ -67,7 +72,6 @@ sub main ($tap_results, $output_file, $test_file) {
                 $results{status} = 'fail';
             }
             elsif ($part->[1]{plan}{skipAll}) {
-                $results{status}  = 'error';
                 $results{message} = $output;
             }
             else {
