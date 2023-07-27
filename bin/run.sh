@@ -38,13 +38,14 @@ fi
 
 echo "${slug}: testing..."
 
-# Move to /tmp for log file creation
-cd /tmp
-# Run the tests and output to log.jsonl
-PERL5OPT='-MXXX=-global' yath test "${input_dir}/${slug}.t" -qq --log-file /tmp/log.jsonl
-# Move back
-cd -
-# Transform log data to expected output
-cat /tmp/log.jsonl | bin/transform_logs.pl > ${results_file}
+# Run the tests and transform to results
+if [ -f "${input_dir}/t/${slug}.t" ]; then
+    test_file="${input_dir}/t/${slug}.t"
+else
+    test_file="${input_dir}/${slug}.t"
+fi
+chmod +x $test_file
+PERL5OPT='-MXXX=-global' perl -I"${input_dir}/lib" -I"${input_dir}/local/lib/perl5" $test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
+bin/transform-results.pl "${output_dir}/tap.json" "${results_file}" $test_file
 
 echo "${slug}: done"

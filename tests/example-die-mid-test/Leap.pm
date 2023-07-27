@@ -7,7 +7,7 @@ our @EXPORT_OK = qw<is_leap_year>;
 
 sub is_leap_year {
   my ($year) = @_;
-  die 'oh no';
+  die 'oh no' if $year == 1996;
   return $year % 2 == 1;
 }
 

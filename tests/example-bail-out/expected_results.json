@@ -1,5 +1,44 @@
 {
-   "message" : "\"is_leap_year\" is not exported by the Leap module\nCan't continue after import errors at ../solution/leap.t line 7.\nBEGIN failed--compilation aborted at ../solution/leap.t line 7.\n",
+   "message" : "\"is_leap_year\" is not exported by the Leap module\nCan't continue after import errors at /solution/leap.t line 7.\nBEGIN failed--compilation aborted at /solution/leap.t line 7.\n",
    "status" : "error",
-   "version" : 2
+   "tests" : [
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(2015),\n    DF, # Defined but False\n    \"year not divisible by 4 in common year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(1970),\n    DF, # Defined but False\n    \"year divisible by 2, not divisible by 4 in common year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(1996),\n    T, # True\n    \"year divisible by 4, not divisible by 100 in leap year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(1960),\n    T, # True\n    \"year divisible by 4 and 5 is still a leap year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(2100),\n    DF, # Defined but False\n    \"year divisible by 100, not divisible by 400 in common year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(1900),\n    DF, # Defined but False\n    \"year divisible by 100 but not by 3 is still not a leap year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(2000),\n    T, # True\n    \"year divisible by 400 is leap year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(2400),\n    T, # True\n    \"year divisible by 400 but not by 125 is still a leap year\",\n);"
+      },
+      {
+         "status" : "error",
+         "test_code" : "is( \n    is_leap_year(1800),\n    DF, # Defined but False\n    \"year divisible by 200, not divisible by 400 in common year\",\n);"
+      }
+   ],
+   "version" : 3
 }
+
