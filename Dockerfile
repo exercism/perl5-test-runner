@@ -21,7 +21,8 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - ins
     Moose \
     Object::Pad \
     Object::Tiny \
-    Role::Tiny
+    Role::Tiny \
+    Type::Tiny
 
 RUN npm install -g tap-parser
 

@@ -7,9 +7,9 @@ no warnings qw<experimental::builtin>;
 use Cpanel::JSON::XS ();
 use Path::Tiny qw<path>;
 
-main(@ARGV) unless caller;
+run(@ARGV) unless caller;
 
-sub main ($tap_results, $output_file, $test_file) {
+sub run ($tap_results, $output_file, $test_file) {
     my $output = ''; 
     my $take   = false;
     my (@case, $case_id, $task_id);
