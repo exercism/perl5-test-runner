@@ -12,6 +12,7 @@ RUN curl -fsSL https://raw.githubusercontent.com/skaji/cpm/main/cpm | perl - ins
     Path::Tiny \
     Test2::V0 \
     App::Yath \
+    Readonly \
     Data::Dumper \
     Data::Dump \
     Data::Dump::Color \
