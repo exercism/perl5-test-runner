@@ -47,6 +47,7 @@ sub run ($tap_results, $output_file, $test_file) {
     }
 
     my $i = 0;
+    my $subtest = '';
     for my $part ( $json->decode( path($tap_results)->slurp_utf8 )->@* ) {
         if ($part->[0] eq 'comment') {
             if ($results{tests}[$i-1]{status} eq 'fail') {
@@ -54,7 +55,7 @@ sub run ($tap_results, $output_file, $test_file) {
             }
         }
         elsif ($part->[0] eq 'child') {
-            $results{tests}[$i]{message} .= join '', map { $_->[1] } grep { $_->[0] eq 'comment' } $part->[1]->@*;
+            $subtest = join '', map { $_->[1] } grep { $_->[0] eq 'comment' } $part->[1]->@*;
         }
         elsif ($part->[0] eq 'extra') {
             $output .= $part->[1];
@@ -62,8 +63,15 @@ sub run ($tap_results, $output_file, $test_file) {
         elsif ($part->[0] eq 'assert') {
             $results{tests}[$i]{name}     = $part->[1]{name};
             $results{tests}[$i]{output}   = length($output) <= 500 ? $output : substr($output, 0, 500) . '... Output was truncated. Please limit to 500 chars.' if $output;
-            $results{tests}[$i++]{status} = $part->[1]{ok} ? 'pass' : 'fail';
-            $output = '';
+            if ($part->[1]{ok}) {
+                $results{tests}[$i++]{status} = 'pass';
+            }
+            else {
+                $results{tests}[$i]{message} .= $subtest;
+                $results{tests}[$i++]{status} = 'fail';
+            }
+            $output  = '';
+            $subtest = '';
         }
         elsif ($part->[0] eq 'bailout') {
             $results{message} = $part->[1];
