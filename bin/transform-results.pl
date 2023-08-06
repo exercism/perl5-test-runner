@@ -53,6 +53,9 @@ sub run ($tap_results, $output_file, $test_file) {
                 $results{tests}[$i-1]{message} .= $part->[1]; 
             }
         }
+        elsif ($part->[0] eq 'child') {
+            $results{tests}[$i-1]{message} .= join '', map { $_->[1] } grep { $_->[0] eq 'comment' } $part->[1]->@*;
+        }
         elsif ($part->[0] eq 'extra') {
             $output .= $part->[1];
         }
