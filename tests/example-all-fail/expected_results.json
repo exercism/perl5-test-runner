@@ -51,7 +51,7 @@
          "test_code" : "is( \n    is_leap_year(2400),\n    T, # True\n    \"year divisible by 400 but not by 125 is still a leap year\",\n);"
       },
       {
-         "message" : "# Failed test 'year divisible by 200, not divisible by 400 in common year'\n# at /solution/leap.t line 57.\n# +---------+----------------------+-------------------+-----+\n# | GOT     | OP                   | CHECK             | LNs |\n# +---------+----------------------+-------------------+-----+\n# | <UNDEF> | DEFINED() && FALSE() | DEFINED BUT FALSE | 57  |\n# +---------+----------------------+-------------------+-----+\n# failed 9 of 9 tests\n",
+         "message" : "# Failed test 'year divisible by 200, not divisible by 400 in common year'\n# at /solution/leap.t line 57.\n# +---------+----------------------+-------------------+-----+\n# | GOT     | OP                   | CHECK             | LNs |\n# +---------+----------------------+-------------------+-----+\n# | <UNDEF> | DEFINED() && FALSE() | DEFINED BUT FALSE | 57  |\n# +---------+----------------------+-------------------+-----+\n",
          "name" : "year divisible by 200, not divisible by 400 in common year",
          "status" : "fail",
          "test_code" : "is( \n    is_leap_year(1800),\n    DF, # Defined but False\n    \"year divisible by 200, not divisible by 400 in common year\",\n);"
