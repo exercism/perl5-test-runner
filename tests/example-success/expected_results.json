@@ -41,7 +41,7 @@
       },
       {
          "name" : "year divisible by 400 but not by 125 is still a leap year",
-         "output" : "--- Why Why Why\n...\n  at /solution/Leap.pm line 17\n",
+         "output" : "{ \u001b[35myear\u001b[0m => \u001b[94m2400\u001b[0m }\n  at /solution/Leap.pm line 18\n",
          "status" : "pass",
          "test_code" : "is( \n    is_leap_year(2400),\n    T, # True\n    \"year divisible by 400 but not by 125 is still a leap year\",\n);"
       },
