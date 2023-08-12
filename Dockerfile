@@ -1,7 +1,7 @@
 FROM perl:5.38.0-bookworm
 
 RUN apt-get update && \
-    apt-get install -y npm && \
+    apt-get install -y npm expect-dev && \
     apt-get purge --auto-remove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
