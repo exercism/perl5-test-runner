@@ -19,6 +19,12 @@ requires 'Object::Pad';
 requires 'Object::Tiny';
 requires 'Role::Tiny';
 
+# Dates and Times
+requires 'DateTime';
+requires 'DateTime::Tiny';
+requires 'Date::Tiny';
+requires 'Time::Tiny';
+
 # Misc
 requires 'Readonly';
 requires 'Type::Tiny';
