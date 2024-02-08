@@ -53,6 +53,9 @@ sub run ($tap_results, $output_file, $test_file) {
             if ($results{tests}[$i-1]{status} eq 'fail') {
                 $results{tests}[$i-1]{message} .= $part->[1]; 
             }
+            else {
+                $output .= $part->[1];
+            }
         }
         elsif ($part->[0] eq 'child') {
             $subtest = join '', map { $_->[1] } grep { $_->[0] eq 'comment' } $part->[1]->@*;
