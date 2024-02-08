@@ -25,6 +25,10 @@ requires 'DateTime::Tiny';
 requires 'Date::Tiny';
 requires 'Time::Tiny';
 
-# Misc
+# Constants
 requires 'Readonly';
+requires 'ReadonlyX';
+requires 'Const::Fast';
+
+# Types
 requires 'Type::Tiny';
