@@ -45,7 +45,7 @@ else
     test_file="${input_dir}/${slug}.t"
 fi
 chmod +x $test_file
-PERL5OPT='-MXXX=-global' unbuffer perl -I"${input_dir}/lib" -I"${input_dir}/local/lib/perl5" $test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
+HARNESS_ACTIVE=1 PERL5OPT='-MXXX=-global' unbuffer perl -I"${input_dir}/lib" -I"${input_dir}/local/lib/perl5" $test_file 2>&1 | tap-parser -j 0 > "${output_dir}/tap.json"
 bin/transform-results.pl "${output_dir}/tap.json" "${results_file}" $test_file
 
 echo "${slug}: done"
