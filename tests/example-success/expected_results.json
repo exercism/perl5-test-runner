@@ -9,7 +9,7 @@
       },
       {
          "name" : "year divisible by 2, not divisible by 4 in common year",
-         "output" : "OUTPUT\n",
+         "output" : "# OUTPUT\n",
          "status" : "pass",
          "test_code" : "is( \n    is_leap_year(1970),\n    DF, # Defined but False\n    \"year divisible by 2, not divisible by 4 in common year\",\n);"
       },

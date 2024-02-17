@@ -14,7 +14,7 @@
          "test_code" : "is( \n    is_leap_year(1970),\n    DF, # Defined but False\n    \"year divisible by 2, not divisible by 4 in common year\",\n);"
       },
       {
-         "message" : "oh no at /solution/Leap.pm line 10.\n",
+         "message" : "oh no at /solution/Leap.pm line 10.\n# Tests were run but no plan was declared and done_testing() was not seen.\n# Looks like your test exited with 255 after test #2.\n# ",
          "status" : "error",
          "test_code" : "is( \n    is_leap_year(1996),\n    T, # True\n    \"year divisible by 4, not divisible by 100 in leap year\",\n);"
       },
