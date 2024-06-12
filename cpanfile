@@ -2,7 +2,6 @@
 requires 'App::cpm';
 requires 'Cpanel::JSON::XS';
 requires 'Path::Tiny';
-requires 'Test2::V0';
 
 # Dumping
 requires 'Data::Dumper';

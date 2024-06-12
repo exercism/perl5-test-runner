@@ -1,8 +1,6 @@
 #!/usr/bin/env perl
 
-use v5.38;
-use builtin qw<true false>;
-no warnings qw<experimental::builtin>;
+use v5.40;
 
 use Cpanel::JSON::XS ();
 use Path::Tiny qw<path>;

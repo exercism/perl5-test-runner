@@ -1,4 +1,4 @@
-FROM perl:5.38.2-bookworm
+FROM perl:5.40.0-bookworm
 
 RUN apt-get update && \
     apt-get install -y npm expect-dev && \
