@@ -31,3 +31,6 @@ requires 'Const::Fast';
 
 # Types
 requires 'Type::Tiny';
+
+# Multiple Dispatch
+requires 'Multi::Dispatch';
