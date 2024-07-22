@@ -1,0 +1,80 @@
+{
+   "message" : null,
+   "status" : "fail",
+   "tests" : [
+      {
+         "message" : "# Failed test 'English language short'\n# at /solution/t/leap.t line 9.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | Hi    |\n# +---------+-------+\n",
+         "name" : "English language short",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"Hi\"),\n    'Hi',\n    'English language short',\n);"
+      },
+      {
+         "message" : "# Failed test 'English language long'\n# at /solution/t/leap.t line 15.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | Hello |\n# +---------+-------+\n",
+         "name" : "English language long",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"Hello there\"),\n    'Hello',\n    'English language long',\n);"
+      },
+      {
+         "message" : "# Failed test 'German language short (broth)'\n# at /solution/t/leap.t line 21.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | br\u00fche |\n# +---------+-------+\n",
+         "name" : "German language short (broth)",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"br\\xC3\\xBChe\"),\n    'br\u00fche',\n    'German language short (broth)',\n);"
+      },
+      {
+         "message" : "# Failed test 'German language long (bear carpet \u2192 beards)'\n# at /solution/t/leap.t line 27.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | B\u00e4rte |\n# +---------+-------+\n",
+         "name" : "German language long (bear carpet \u2192 beards)",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"B\\xC3\\xA4rteppich\"),\n    'B\u00e4rte',\n    'German language long (bear carpet \u2192 beards)',\n);"
+      },
+      {
+         "message" : "# Failed test 'Bulgarian language short (good)'\n# at /solution/t/leap.t line 33.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \u0414\u043e\u0431\u044a\u0440 |\n# +---------+-------+\n",
+         "name" : "Bulgarian language short (good)",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xD0\\x94\\xD0\\xBE\\xD0\\xB1\\xD1\\x8A\\xD1\\x80\"),\n    '\u0414\u043e\u0431\u044a\u0440',\n    'Bulgarian language short (good)',\n);"
+      },
+      {
+         "message" : "# Failed test 'Greek language short (health)'\n# at /solution/t/leap.t line 39.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \u03c5\u03b3\u03b5\u03b9\u03ac |\n# +---------+-------+\n",
+         "name" : "Greek language short (health)",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xCF\\x85\\xCE\\xB3\\xCE\\xB5\\xCE\\xB9\\xCE\\xAC\"),\n    '\u03c5\u03b3\u03b5\u03b9\u03ac',\n    'Greek language short (health)',\n);"
+      },
+      {
+         "message" : "# Failed test 'Maths short'\n# at /solution/t/leap.t line 45.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | a=\u03c0r\u00b2 |\n# +---------+-------+\n",
+         "name" : "Maths short",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"a=\\xCF\\x80r\\xC2\\xB2\"),\n    'a=\u03c0r\u00b2',\n    'Maths short',\n);"
+      },
+      {
+         "message" : "# Failed test 'Maths long'\n# at /solution/t/leap.t line 51.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \u2205\u228a\u2115\u228a\u2124 |\n# +---------+-------+\n",
+         "name" : "Maths long",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xE2\\x88\\x85\\xE2\\x8A\\x8A\\xE2\\x84\\x95\\xE2\\x8A\\x8A\\xE2\\x84\\xA4\\xE2\\x8A\\x8A\\xE2\\x84\\x9A\\xE2\\x8A\\x8A\\xE2\\x84\\x9D\\xE2\\x8A\\x8A\\xE2\\x84\\x82\"),\n    '\u2205\u228a\u2115\u228a\u2124',\n    'Maths long',\n);"
+      },
+      {
+         "message" : "# Failed test 'English and emoji short'\n# at /solution/t/leap.t line 57.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | Fly \ud83d\udeeb |\n# +---------+-------+\n",
+         "name" : "English and emoji short",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"Fly \\xF0\\x9F\\x9B\\xAB\"),\n    'Fly \ud83d\udeeb',\n    'English and emoji short',\n);"
+      },
+      {
+         "message" : "# Failed test 'Emoji short'\n# at /solution/t/leap.t line 63.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \ud83d\udc87     |\n# +---------+-------+\n",
+         "name" : "Emoji short",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xF0\\x9F\\x92\\x87\"),\n    '\ud83d\udc87',\n    'Emoji short',\n);"
+      },
+      {
+         "message" : "# Failed test 'Emoji long'\n# at /solution/t/leap.t line 69.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \u2744\ud83c\udf21\ud83e\udd27\ud83e\udd12\ud83c\udfe5 |\n# +---------+-------+\n",
+         "name" : "Emoji long",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xE2\\x9D\\x84\\xF0\\x9F\\x8C\\xA1\\xF0\\x9F\\xA4\\xA7\\xF0\\x9F\\xA4\\x92\\xF0\\x9F\\x8F\\xA5\\xF0\\x9F\\x95\\xB0\\xF0\\x9F\\x98\\x80\"),\n    '\u2744\ud83c\udf21\ud83e\udd27\ud83e\udd12\ud83c\udfe5',\n    'Emoji long',\n);"
+      },
+      {
+         "message" : "# Failed test 'Royal Flush?'\n# at /solution/t/leap.t line 75.\n# +---------+-------+\n# | GOT     | CHECK |\n# +---------+-------+\n# | <UNDEF> | \ud83c\udcce\ud83c\udcb8\ud83c\udcc5\ud83c\udccb\ud83c\udccd |\n# +---------+-------+\n# ",
+         "name" : "Royal Flush?",
+         "status" : "fail",
+         "test_code" : "is( \n    truncate_post(\"\\xF0\\x9F\\x83\\x8E\\xF0\\x9F\\x82\\xB8\\xF0\\x9F\\x83\\x85\\xF0\\x9F\\x83\\x8B\\xF0\\x9F\\x83\\x8D\\xF0\\x9F\\x83\\x81\\xF0\\x9F\\x83\\x8A\"),\n    '\ud83c\udcce\ud83c\udcb8\ud83c\udcc5\ud83c\udccb\ud83c\udccd',\n    'Royal Flush?',\n);"
+      }
+   ],
+   "version" : 3
+}
+

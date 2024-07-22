@@ -2,6 +2,7 @@
 requires 'App::cpm';
 requires 'Cpanel::JSON::XS';
 requires 'Path::Tiny';
+requires 'Unicode::GCString';
 
 # Dumping
 requires 'Data::Dumper';

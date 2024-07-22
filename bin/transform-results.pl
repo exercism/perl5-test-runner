@@ -11,7 +11,7 @@ sub run ($tap_results, $output_file, $test_file) {
     my $output = ''; 
     my $take   = false;
     my (@case, $case_id, $task_id);
-    my $json = Cpanel::JSON::XS->new->canonical->pretty->utf8;
+    my $json = Cpanel::JSON::XS->new->canonical->pretty->ascii;
 
     my %results = (
         status  => 'error',
@@ -26,7 +26,7 @@ sub run ($tap_results, $output_file, $test_file) {
             $case_id = $1;
             $task_id = $2;
         }
-        
+
         if ($take) {
             push @case, ($line =~ s/# \w+: $case_id.*//r);
 
