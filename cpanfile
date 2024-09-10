@@ -12,6 +12,7 @@ requires 'XXX';
 requires 'JSON';
 
 # OO
+requires 'Feature::Compat::Class';
 requires 'Moo';
 requires 'Mo';
 requires 'Moose';
