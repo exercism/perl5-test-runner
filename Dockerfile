@@ -1,4 +1,4 @@
-FROM perl:5.42.2-slim-bookworm@sha256:49f4e5e7e2fc5b12e5fc9b5a0603d96502feb24b97babd1bdf42e3f1fc3ebc43
+FROM perl:5.44.0-slim-bookworm@sha256:a1efec189dae6912af5acbeb897ae171424ad007021cb4d14fe527150b826224
 
 # expect-dev - provides `unbuffer`
 RUN apt-get update && \
